@@ -277,6 +277,11 @@
             autodisable: true,
             commandCooldown: 30,
             usercommandsEnabled: true,
+            gifs: [
+            ["fire", "https://media.giphy.com/media/oZYBdbW7TnhEQ/giphy.gif"],
+	        ["housefire", "http://img3.wikia.nocookie.net/__cb20130528190013/creepypasta/images/0/05/House-on-fire-o.gif"],
+            ["itslit", "http://ak-hdl.buzzfed.com/static/2014-11/25/17/enhanced/webdr10/anigif_enhanced-buzz-23602-1416956093-7.gif"]
+            ],
             skipPosition: 3,
             skipReasons: [
                 ["theme", "This song does not fit the room theme. "],
@@ -2547,7 +2552,38 @@
                     }
                 }
             },
-
+	gifCommand: {
+                command: 'gif',
+                rank: 'user',
+                type: 'startsWith',
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                            if (chat.message.length === cmd.length) {
+                		   API.sendChat("/me [ERROR] Enter a gif name");
+                                return void (0);
+                            }
+                            var validReason = false;
+                            var msg = chat.message;
+                            var reason = msg.substring(cmd.length + 1);
+                            for (var i = 0; i < basicBot.settings.gifs.length; i++) {
+                                var r = basicBot.settings.gifs[i][0];
+                                if (reason.indexOf(r) !== -1) {
+                                    validReason = true;
+                                    var msgSend += basicBot.settings.gifs[i][1];
+                                }
+                            }
+                            if (validReason) {
+                                setTimeout(function () {
+                                    API.sendChat(msgSend);
+                                }); 
+                                
+                                return void (0);
+                             }
+                        }
+                    } 
+            },
             lockskipCommand: {
                 command: 'lockskip',
                 rank: 'bouncer',
