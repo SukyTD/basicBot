@@ -277,6 +277,10 @@
             autodisable: true,
             commandCooldown: 30,
             usercommandsEnabled: true,
+            images: [
+            ["savage","http://i.imgur.com/f03PWbE.jpg"],
+            ["salty","http://i.imgur.com/5D2X3gi.jpg"]
+            ],
             gifs: [
             ["fire", "https://media.giphy.com/media/oZYBdbW7TnhEQ/giphy.gif"],
             ["turnup2", "http://www.kappit.com/img/gifs/201311_2230a66ca.gif"],
