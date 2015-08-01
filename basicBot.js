@@ -232,13 +232,13 @@
     };
 
     var botCreator = "KGTHREAT";
-    var botMaintainer = "Benzi"
+    var botMaintainer = "Equalize"
     var botCreatorIDs = ["4856169", "5596573"];
 
     var basicBot = {
         version: "2.8.10",
         status: false,
-        name: "basicBot",
+        name: "Karl Bot",
         loggedInID: null,
         scriptLink: "https://rawgit.com/Yemasthui/basicBot/master/basicBot.js",
         cmdLink: "https://goo.gl/oX3C3r",
@@ -248,7 +248,7 @@
         retrieveSettings: retrieveSettings,
         retrieveFromStorage: retrieveFromStorage,
         settings: {
-            botName: "basicBot",
+            botName: "Karl Bot",
             language: "english",
             chatLink: "https://rawgit.com/Yemasthui/basicBot/master/lang/en.json",
             roomLock: false, // Requires an extension to re-load the script
