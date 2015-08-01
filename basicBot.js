@@ -290,6 +290,7 @@
             ["bye","http://www.gop.gov/app/uploads/2014/07/bye.gif"],
             ["shit","http://www.reactiongifs.com/r/2013/10/sht.gif"],
             ["lol","http://www.reactiongifs.com/lol/Obama-lol.gif"],
+            ["sub","http://i.imgur.com/vn1qM3z.gif"],
             ["no","http://i.imgur.com/vO2hy3J.gif"],
             ["yes","http://i.imgur.com/jcfnEgb.gif"],
             ["itsatrap","http://i.imgur.com/A2BRlEk.jpg"],
