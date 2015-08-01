@@ -2222,7 +2222,7 @@
                     }
                 }
             },
-
+/*
             gifCommand: {
                 command: ['gif', 'giphy'],
                 rank: 'user',
@@ -2291,7 +2291,7 @@
                     }
                 }
             },
-
+*/
             helpCommand: {
                 command: 'help',
                 rank: 'user',
