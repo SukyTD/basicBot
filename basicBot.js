@@ -231,9 +231,9 @@
         return str;
     };
 
-    var botCreator = "Matthew (Yemasthui)";
+    var botCreator = "KGTHREAT";
     var botMaintainer = "Benzi"
-    var botCreatorIDs = ["3851534", "4105209"];
+    var botCreatorIDs = ["4856169", "5596573"];
 
     var basicBot = {
         version: "2.8.10",
@@ -358,8 +358,8 @@
 
             },
             newBlacklisted: [],
-            newBlacklistedSongFunction: null
-            /*roulette: {
+            newBlacklistedSongFunction: null,
+            roulette: {
                 rouletteStatus: false,
                 participants: [],
                 countdown: null,
@@ -383,7 +383,7 @@
                         basicBot.userUtilities.moveUser(winner, pos, false);
                     }, 1 * 1000, winner, pos);
                 }
-            }*/
+            }
         },
         User: function (id, name) {
             this.id = id;
@@ -1185,7 +1185,7 @@
                     return true;
                 }
 
-                /*var rlJoinChat = basicBot.chat.roulettejoin;
+                var rlJoinChat = basicBot.chat.roulettejoin;
                 var rlLeaveChat = basicBot.chat.rouletteleave;
 
                 var joinedroulette = rlJoinChat.split('%%NAME%%');
@@ -1201,7 +1201,7 @@
                         API.moderateDeleteChat(id);
                     }, 5 * 1000, chat.cid);
                     return true;
-                }*/
+                }
                 return false;
             },
             commandCheck: function (chat) {
@@ -2321,7 +2321,7 @@
                 }
             },
 
-            /*joinCommand: {
+            joinCommand: {
                 command: 'join',
                 rank: 'user',
                 type: 'exact',
@@ -2335,7 +2335,7 @@
                         }
                     }
                 }
-            },*/
+            },
 
             jointimeCommand: {
                 command: 'jointime',
@@ -2450,7 +2450,7 @@
                 }
             },
 
-            /*leaveCommand: {
+            leaveCommand: {
                 command: 'leave',
                 rank: 'user',
                 type: 'exact',
@@ -2465,7 +2465,7 @@
                         }
                     }
                 }
-            },*/
+            },
 
             linkCommand: {
                 command: 'link',
@@ -2935,7 +2935,7 @@
                 }
             },
 
-            /*rouletteCommand: {
+            rouletteCommand: {
                 command: 'roulette',
                 rank: 'mod',
                 type: 'exact',
@@ -2948,7 +2948,7 @@
                         }
                     }
                 }
-            },*/
+            },
 
             rulesCommand: {
                 command: 'rules',
@@ -3080,7 +3080,7 @@
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
                     else {
-                        API.sendChat('/me This bot was created by ' + botCreator + ', but is now maintained by ' + botMaintainer + ".");
+                        API.sendChat('/me This bot was created by ' + botCreator + ' ".");
                     }
                 }
             },
