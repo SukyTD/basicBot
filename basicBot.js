@@ -2182,7 +2182,7 @@
                     API.sendChat("/me Join Our Facebook Group: http://on.fb.me/1dRgupy");
                 }
             }
-        };
+        },
             fbCommand: {
                 command: 'fb',
                 rank: 'user',
