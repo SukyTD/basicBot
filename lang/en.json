@@ -192,7 +192,7 @@
     "swapinvalid": "\/me [@%%NAME%%] Invalid user specified. (No names with spaces!)",
     "swapwlonly": "\/me [@%%NAME%%] Please only swap users that are in the waitlist!",
     "swapping": "\/me Swapping %%NAME1%% with %%NAME2%%.",
-    "genres": "\/me Please find the permissible room genres here: %%LINK%%",
+    "genres": "\/me %%LINK%%",
     "notbanned": "\/me [@%%NAME%%] The user was not banned.",
     "unmutedeveryone": "\/me [@%%NAME%%] Unmuted everyone.",
     "unmuteeveryonerank": "\/me [@%%NAME%%] Only managers and up can unmute everyone at once.",
