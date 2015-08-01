@@ -2599,7 +2599,7 @@
                         //   var dj = API.getDJ();
                         //    var id = dj.id;
                             if (chat.message.length === cmd.length) {
-                		   API.sendChat("/me [ERROR] Enter a gif name");
+                		   API.sendChat("/me [ERROR] Enter an gif name");
                                 return void (0);
                             }
                             var validReason = false;
