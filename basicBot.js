@@ -2552,7 +2552,7 @@
                     }
                 }
             },
-	gifCommand: {
+            gifCommand: {
                 command: 'gif',
                 rank: 'user',
                 type: 'startsWith',
@@ -2560,6 +2560,8 @@
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
                     else {
+                        //   var dj = API.getDJ();
+                        //    var id = dj.id;
                             if (chat.message.length === cmd.length) {
                 		   API.sendChat("/me [ERROR] Enter a gif name");
                                 return void (0);
