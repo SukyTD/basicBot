@@ -2622,6 +2622,40 @@
                         }
                     } 
             },
+            imageCommand: {
+                command: 'image',
+                rank: 'user',
+                type: 'startsWith',
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                        //   var dj = API.getDJ();
+                        //    var id = dj.id;
+                            if (chat.message.length === cmd.length) {
+                		   API.sendChat("/me [ERROR] Enter an image name");
+                                return void (0);
+                            }
+                            var validReason = false;
+                            var msg = chat.message;
+                            var reason = msg.substring(cmd.length + 1);
+                            for (var i = 0; i < basicBot.settings.images.length; i++) {
+                                var r = basicBot.settings.images[i][0];
+                                if (reason.indexOf(r) !== -1) {
+                                    validReason = true;
+                                    var msgSend = basicBot.settings.images[i][1];
+                                }
+                            }
+                            if (validReason) {
+                                setTimeout(function () {
+                                    API.sendChat(msgSend);
+                                }); 
+                                
+                                return void (0);
+                             }
+                        }
+                    } 
+            },
             lockskipCommand: {
                 command: 'lockskip',
                 rank: 'bouncer',
