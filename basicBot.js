@@ -236,7 +236,7 @@
     var botCreatorIDs = ["4856169", "5596573"];
 
     var basicBot = {
-        version: "2.8.10",
+        version: "3.0",
         status: false,
         name: "Karl Bot",
         loggedInID: null,
@@ -273,7 +273,7 @@
             voteSkipLimit: 9,
             historySkip: true,
             timeGuard: true,
-            maximumSongLength: 10,
+            maximumSongLength: 7,
             autodisable: true,
             commandCooldown: 30,
             usercommandsEnabled: true,
