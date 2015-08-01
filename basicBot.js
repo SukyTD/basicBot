@@ -279,7 +279,7 @@
             usercommandsEnabled: true,
             gifs: [
             ["fire", "https://media.giphy.com/media/oZYBdbW7TnhEQ/giphy.gif"],
-	        ["housefire", "http://img3.wikia.nocookie.net/__cb20130528190013/creepypasta/images/0/05/House-on-fire-o.gif"],
+	    ["housefire", "http://img3.wikia.nocookie.net/__cb20130528190013/creepypasta/images/0/05/House-on-fire-o.gif"],
             ["itslit", "http://ak-hdl.buzzfed.com/static/2014-11/25/17/enhanced/webdr10/anigif_enhanced-buzz-23602-1416956093-7.gif"]
             ],
             skipPosition: 3,
