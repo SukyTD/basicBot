@@ -21,6 +21,14 @@
         "gives you an old cookie that was left out in the rain, it's moldy.",
         "bakes you fresh cookies, it smells amazing."
     ],
+     "punches": [
+        "uses Focus Punch! It's super effective!",
+        "gave you a free trip to the hospital with a punch to the face!",
+        "tried to punch you, but they fell over and kissed you on the forehead instead :kiss:",
+        "punches you so hard you almost fall out of the wait list",
+        "tries to punch you, but you △△ 360 black scope his ass... Get REXT m8",
+        "punches you. You get so scared, you shit a brick and throw it back at him... GET REKT m8"
+    ],
     "balls": [
         "Signs point to yes.",
         "Yes.",
@@ -143,6 +151,10 @@
     "chatcleared": "\/me [@%%NAME%%] Cleared the chat.",
     "deletechat": "\/me [@%%NAME%%] Cleared the chat of %%USERNAME%%.",
     "commandslink": "\/me %%BOTNAME%% commands: %%LINK%%",
+    "eatpunch": "\/me you need to punch someone.",
+    "nouserpunch": "\/em doesn't see %%NAME%% in room.",
+    "selfpunch": "\/me @%%NAME%%, don't punch yourself, that's stupid!",
+    "punch": "\/me @%%NAMETO%%, %%NAMEFROM%% %%PUNCH%%",
     "eatcookie": "\/me eats a cookie.",
     "nousercookie": "\/em doesn't see %%NAME%% in room and eats a cookie himself.",
     "selfcookie": "\/me @%%NAME%%, you're a bit greedy, aren't you? Giving cookies to yourself, bah. Share some with other people!",
