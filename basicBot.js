@@ -427,7 +427,7 @@
             };
             this.lastEta = null;
             this.afkWarningCount = 0;
-            this.punchcd = 1;
+           // this.punchcd = 1;
             this.afkCountdown = null;
             this.inRoom = true;
             this.isMuted = false;
@@ -888,13 +888,13 @@
                 var u = basicBot.userUtilities.lookupUser(user.id);
                 var jt = u.jointime;
                 var t = Date.now() - jt;
-                u.punchcd = 1;
+              //  u.punchcd = 1;
                 if (t < 10 * 1000) greet = false;
                 else welcomeback = true;
             }
             else {
                 basicBot.room.users.push(new basicBot.User(user.id, user.username));
-                u.punchcd = 1;
+              //  u.punchcd = 1;
                 welcomeback = false;
             }
             for (var j = 0; j < basicBot.room.users.length; j++) {
@@ -1989,9 +1989,9 @@
                     else {
                         var msg = chat.message;
 			var user = basicBot.userUtilities.lookupUser(id);
-			var punchcd = user.punchcd;
+		//	var punchcd = user.punchcd;
                         var space = msg.indexOf(' ');
-                        if (punchcd === 1) {
+                        //if (punchcd === 1) {
                         if (space === -1) {
                             API.sendChat(basicBot.chat.eatpunch);
                             return false;
@@ -2007,11 +2007,11 @@
                             }
                             else {
                                 return API.sendChat(subChat(basicBot.chat.punch, {nameto: user.username, namefrom: chat.un, punch: this.getpunch()}));
-				user.punchcd = 0;
-                		setTimeout(function () {
-                			user.punchcd = 1;
-                        	}, 5 * 1000);		
-                            }
+			//	user.punchcd = 0;
+                	//	setTimeout(function () {
+                	//		user.punchcd = 1;
+                        //	}, 5 * 1000);		
+                        //    }
                         }
                     }
                 }
