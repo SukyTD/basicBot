@@ -389,6 +389,32 @@
             },
             newBlacklisted: [],
             newBlacklistedSongFunction: null,
+            raffle: {
+            raffleStatus: false,
+            participants: [],
+            countdown: null,
+            startraffle: function () {
+                    basicBot.room.raffle.raffleStatus = true;
+                    basicBot.room.raffle.countdown = setTimeout(function () {
+                        basicBot.room.raffle.endraffle();
+                    }, 60 * 1000);
+                    API.sendChat(basicBot.chat.isopen);
+                },
+            endraffle: function () {
+                    basicBot.room.raffle.raffleStatus = false;
+                    var ind = Math.floor(Math.random() * basicBot.room.raffle.participants.length);
+                    var winner = basicBot.room.raffle.participants[ind];
+                    basicBot.room.raffle.participants = [];
+                    var pos = Math.floor((Math.random() * API.getWaitList().length) + 1);
+                    var user = basicBot.userUtilities.lookupUser(winner);
+                    var name = user.username;
+                    API.sendChat(subChat(basicBot.chat.winnerpicked, {name: name, position: pos}));
+                    setTimeout(function (winner, pos) {
+                        basicBot.userUtilities.moveUser(winner, pos, false);
+                    }, 1 * 1000, winner, pos);
+                }
+            }
+        },
             roulette: {
                 rouletteStatus: false,
                 participants: [],
@@ -1214,6 +1240,27 @@
                     API.moderateDeleteChat(chat.cid);
                     return true;
                 }
+
+                var rfJoinChat = basicBot.chat.rafflejoin;
+                var rfLeaveChat = basicBot.chat.raffleleave;
+
+                var joinedraffle = rfJoinChat.split('%%NAME%%');
+                if (joinedraffle[1].length > joinedraffle[0].length) joinedraffle = joinedraffle[1];
+                else joinedraffle = joinedraffle[0];
+
+                var leftraffle = rfLeaveChat.split('%%NAME%%');
+                if (leftraffle[1].length > leftraffle[0].length) leftraffle = leftraffle[1];
+                else leftraffle = leftraffle[0];
+
+                if ((msg.indexOf(joinedraffle) > -1 || msg.indexOf(leftraffle) > -1) && chat.uid === basicBot.loggedInID) {
+                    setTimeout(function (id) {
+                        API.moderateDeleteChat(id);
+                    }, 5 * 1000, chat.cid);
+                    return true;
+                }
+                return false;
+            },
+
 
                 var rlJoinChat = basicBot.chat.roulettejoin;
                 var rlLeaveChat = basicBot.chat.rouletteleave;
@@ -2362,6 +2409,22 @@
                 }
             },
 
+            joinrfCommand: {
+                command: 'joinrf',
+                rank: 'user',
+                type: 'exact',
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                        if (basicBot.room.raffle.raffleStatus && basicBot.room.raffle.participants.indexOf(chat.uid) < 0) {
+                            basicBot.room.raffle.participants.push(chat.uid);
+                            API.sendChat(subChat(basicBot.chat.rafflejoin, {name: chat.un}));
+                        }
+                    }
+                }
+            },
+
             joinCommand: {
                 command: 'join',
                 rank: 'user',
@@ -2487,6 +2550,23 @@
                                 API.sendChat(subChat(basicBot.chat.langset, {language: basicBot.settings.language}));
                             }
                         });
+                    }
+                }
+            },
+
+            leaverfCommand: {
+                command: 'leaverf',
+                rank: 'user',
+                type: 'exact',
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                        var ind = basicBot.room.raffle.participants.indexOf(chat.uid);
+                        if (ind > -1) {
+                            basicBot.room.raffle.participants.splice(ind, 1);
+                            API.sendChat(subChat(basicBot.chat.raffleleave, {name: chat.un}));
+                        }
                     }
                 }
             },
@@ -3038,6 +3118,21 @@
                         else {
                             basicBot.settings.etaRestriction = !basicBot.settings.etaRestriction;
                             return API.sendChat(subChat(basicBot.chat.toggleon, {name: chat.un, 'function': basicBot.chat.etarestriction}));
+                        }
+                    }
+                }
+            },
+
+            raffleCommand: {
+                command: 'raffle',
+                rank: 'mod',
+                type: 'exact',
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                        if (!basicBot.room.raffle.raffleStatus) {
+                            basicBot.room.raffle.startraffle();
                         }
                     }
                 }
