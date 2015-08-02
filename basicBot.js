@@ -881,6 +881,7 @@
                     index = i;
                 }
             }
+            basicBot.userUtilities.dclookup(user.id);
             var greet = true;
             var welcomeback = null;
             if (known) {
