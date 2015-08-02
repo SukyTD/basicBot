@@ -236,7 +236,7 @@
     var botCreatorIDs = ["4856169", "5596573"];
 
     var basicBot = {
-        version: "3.2",
+        version: "3.1",
         status: false,
         name: "Karl Bot",
         loggedInID: null,
@@ -888,11 +888,13 @@
                 var u = basicBot.userUtilities.lookupUser(user.id);
                 var jt = u.jointime;
                 var t = Date.now() - jt;
+                punchcd = 0;
                 if (t < 10 * 1000) greet = false;
                 else welcomeback = true;
             }
             else {
                 basicBot.room.users.push(new basicBot.User(user.id, user.username));
+                punchcd = 0;
                 welcomeback = false;
             }
             for (var j = 0; j < basicBot.room.users.length; j++) {
