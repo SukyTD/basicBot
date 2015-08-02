@@ -1,5 +1,6 @@
 /**
  *Copyright 2014 Yemasthui
+ *Copyright 2015-2016 The Nation
  *Modifications (including forks) of the code to fit personal needs are allowed only for personal use and should refer back to the original source.
  *This software is not for profit, any extension, or unauthorised person providing this software is not authorised to be in a position of any monetary gain from this use of this software. Any and all money gained under the use of the software (which includes donations) must be passed on to the original author.
  */
@@ -236,7 +237,7 @@
     var botCreatorIDs = ["4856169", "5596573"];
 
     var basicBot = {
-        version: "3.1.4",
+        version: "3.1",
         status: false,
         name: "Karl Bot",
         loggedInID: null,
@@ -427,7 +428,6 @@
             };
             this.lastEta = null;
             this.afkWarningCount = 0;
-            this.punchcd = 1;
             this.afkCountdown = null;
             this.inRoom = true;
             this.isMuted = false;
@@ -888,13 +888,11 @@
                 var u = basicBot.userUtilities.lookupUser(user.id);
                 var jt = u.jointime;
                 var t = Date.now() - jt;
-                u.punchcd = 1;
                 if (t < 10 * 1000) greet = false;
                 else welcomeback = true;
             }
             else {
                 basicBot.room.users.push(new basicBot.User(user.id, user.username));
-                u.punchcd = 1;
                 welcomeback = false;
             }
             for (var j = 0; j < basicBot.room.users.length; j++) {
@@ -1988,10 +1986,8 @@
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
                     else {
                         var msg = chat.message;
-		//	var user = basicBot.userUtilities.lookupUser(id);
-			var punchcd = user.punchcd;
+
                         var space = msg.indexOf(' ');
-                        if (punchcd === 1) {
                         if (space === -1) {
                             API.sendChat(basicBot.chat.eatpunch);
                             return false;
@@ -2007,15 +2003,10 @@
                             }
                             else {
                                 return API.sendChat(subChat(basicBot.chat.punch, {nameto: user.username, namefrom: chat.un, punch: this.getpunch()}));
-				user.punchcd = 0;
-                		setTimeout(function () {
-                			user.punchcd = 1;
-                        	}, 5 * 1000);		
                             }
                         }
                     }
                 }
-               }
             },
 
             cycleCommand: {
