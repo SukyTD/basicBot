@@ -236,7 +236,7 @@
     var botCreatorIDs = ["4856169", "5596573"];
 
     var basicBot = {
-        version: "3.0",
+        version: "3.1",
         status: false,
         name: "Karl Bot",
         loggedInID: null,
@@ -1977,8 +1977,8 @@
                 rank: 'user',
                 type: 'startsWith',
                 getpunch: function (chat) {
-                    var c = Math.floor(Math.random() * basicBot.chat.punchs.length);
-                    return basicBot.chat.punchs[c];
+                    var c = Math.floor(Math.random() * basicBot.chat.punches.length);
+                    return basicBot.chat.punches[c];
                 },
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
