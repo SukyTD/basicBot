@@ -427,6 +427,7 @@
             };
             this.lastEta = null;
             this.afkWarningCount = 0;
+            this.punchcd = 0;
             this.afkCountdown = null;
             this.inRoom = true;
             this.isMuted = false;
@@ -1985,8 +1986,10 @@
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
                     else {
                         var msg = chat.message;
-
+			var user = basicBot.userUtilities.lookupUser(id);
+			var punchcd = user.punchcd;
                         var space = msg.indexOf(' ');
+                        if (punchcd === 0) {
                         if (space === -1) {
                             API.sendChat(basicBot.chat.eatpunch);
                             return false;
@@ -2002,10 +2005,15 @@
                             }
                             else {
                                 return API.sendChat(subChat(basicBot.chat.punch, {nameto: user.username, namefrom: chat.un, punch: this.getpunch()}));
+				user.punchcd = 1;
+                		setTimeout(function () {
+                           		user.punchcd = 0;
+                        	}, 5 * 1000);		
                             }
                         }
                     }
                 }
+               }
             },
 
             cycleCommand: {
