@@ -881,7 +881,6 @@
                     index = i;
                 }
             }
-            basicBot.userUtilities.dclookup(user.id);
             var greet = true;
             var welcomeback = null;
             if (known) {
@@ -907,6 +906,8 @@
                 welcomeback ?
                     setTimeout(function (user) {
                         API.sendChat(subChat(basicBot.chat.welcomeback, {name: user.username}));
+                        var toChat = basicBot.userUtilities.dclookup(user.id);
+                        API.sendChat(toChat);
                     }, 1 * 1000, user)
                     :
                     setTimeout(function (user) {
