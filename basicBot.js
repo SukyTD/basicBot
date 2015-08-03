@@ -282,6 +282,7 @@
             ["savage","http://i.imgur.com/f03PWbE.jpg"],
             ["pepe","http://i.imgur.com/fh8c8g1.png"],
             ["feels","http://i.imgur.com/2Jtsp1c.jpg"],
+            ["salad","http://i.imgur.com/eHM4dmJ.jpg"],
             ["sogood","http://i.imgur.com/ZvvJHQ4.png"],
             ["salty","http://i.imgur.com/5D2X3gi.jpg"]
             ],
