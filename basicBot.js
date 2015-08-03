@@ -297,6 +297,7 @@
             ["lol","http://www.reactiongifs.com/lol/Obama-lol.gif"],
             ["sub","http://i.imgur.com/vn1qM3z.gif"],
             ["no","http://i.imgur.com/vO2hy3J.gif"],
+            ["notarapper","http://i.imgur.com/U5UXvXn.gif"],
             ["yes","http://i.imgur.com/jcfnEgb.gif"],
             ["itsatrap","http://i.imgur.com/A2BRlEk.jpg"],
             ["pizza","https://ottopizza.files.wordpress.com/2014/12/pizzatime.gif"],
