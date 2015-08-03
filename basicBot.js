@@ -291,6 +291,7 @@
             ["fire", "https://media.giphy.com/media/oZYBdbW7TnhEQ/giphy.gif"],
             ["turnup2", "http://www.kappit.com/img/gifs/201311_2230a66ca.gif"],
             ["dance", "http://gifdanceparty.giphy.com/dancers/pumpgirl.gif"],
+            ["noice", "http://stream1.gifsoup.com/view7/2993724/noice-o.gif"],
             ["dance2", "http://media.giphy.com/media/Z8DZlscBGbgS4/giphy.gif"],
             ["twerk","https://33.media.tumblr.com/94de043816e7e6589ef6067ecbd9a541/tumblr_inline_my0yvfbsz51ssjb4p.gif"],
             ["twerk2","http://i0.kym-cdn.com/photos/images/original/000/800/276/a0d.gif"],
