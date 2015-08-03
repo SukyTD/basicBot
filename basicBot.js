@@ -6,7 +6,6 @@
  */
 
 
-(function () {
 
     /*window.onerror = function() {
         var room = JSON.parse(localStorage.getItem("basicBotRoom"));
@@ -912,8 +911,7 @@
                 welcomeback ?
                     setTimeout(function (user) {
                         API.sendChat(subChat(basicBot.chat.welcomeback, {name: user.username}));
-                        var toChat = basicBot.userUtilities.dclookup(user.id);
-                        API.sendChat(toChat);
+                        API.sendChat(subChat(basicBot.chat.valid, {name: basicBot.userUtilities.getUser(user).username, time: time, position: newPosition});
                     }, 1 * 1000, user)
                     :
                     setTimeout(function (user) {
