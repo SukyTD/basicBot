@@ -237,7 +237,7 @@
     var botCreatorIDs = ["4856169", "5596573"];
 
     var basicBot = {
-        version: "3.2.6",
+        version: "3.2.7",
         status: false,
         name: "Karl Bot",
         loggedInID: null,
@@ -2511,7 +2511,8 @@
                             basicBot.room.raffle.participants.push(chat.uid);
                             API.sendChat(subChat(basicBot.chat.rafflejoin, {name: chat.un}));
                     }
-                }
+        	  }
+        	} 
               } 
             },
 
@@ -2665,6 +2666,7 @@
                             basicBot.room.raffle.participants.splice(ind, 1);
                             API.sendChat(subChat(basicBot.chat.raffleleave, {name: chat.un}));
                         }
+                      }
                     }
                 }
             },
