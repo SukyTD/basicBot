@@ -91,6 +91,7 @@
     "usernotfound": "\/me User not found.",
     "notdisconnected": "\/me @%%NAME%% did not disconnect during my time here.",
     "notdisconnectedwb": "\/me Welcome back, %%NAME%%",
+    "nopositionwb": "\/me Welcome back, %%NAME%%.",
     "noposition": "\/me No last position known. The waitlist needs to update at least once to register a user's last position.",
     "toolongago": "\/me @%%NAME%%'s last disconnect (DC or leave) was too long ago: %%TIME%%.",
     "toolongagodc": "\/me Welcome back, %%NAME%%",
