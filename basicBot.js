@@ -2511,7 +2511,6 @@
                             basicBot.room.raffle.participants.push(chat.uid);
                             API.sendChat(subChat(basicBot.chat.rafflejoin, {name: chat.un}));
                         }
-                        }
                     }
                 }
             },
@@ -2656,9 +2655,15 @@
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
                     else {
                         var ind = basicBot.room.roulette.participants.indexOf(chat.uid);
+                        var inf = basicBot.room.raffle.participants.indexOf(chat.uid);
                         if (ind > -1) {
                             basicBot.room.roulette.participants.splice(ind, 1);
                             API.sendChat(subChat(basicBot.chat.rouletteleave, {name: chat.un}));
+                        }
+                        else {
+                        if (inf > -1) {
+                            basicBot.room.raffle.participants.splice(ind, 1);
+                            API.sendChat(subChat(basicBot.chat.raffleleave, {name: chat.un}));
                         }
                     }
                 }
