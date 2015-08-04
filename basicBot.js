@@ -1294,8 +1294,6 @@
                     }, 5 * 1000, chat.cid);
                     return true;
                 }
-                return false;
-            },
 
                 var rlJoinChat = basicBot.chat.roulettejoin;
                 var rlLeaveChat = basicBot.chat.rouletteleave;
