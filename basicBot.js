@@ -590,7 +590,7 @@
                 var user = basicBot.userUtilities.lookupUser(id);
                 if (typeof user === 'boolean') return basicBot.chat.usernotfound;
                 var name = user.username;
-                if (user.lastDC.time === null) return subChat(basicBot.chat.notdisconnected, {name: name});
+                if (user.lastDC.time === null) return subChat(basicBot.chat.notdisconnectedwb, {name: name});
                 var dc = user.lastDC.time;
                 var pos = user.lastDC.position;
                 if (pos === null) return basicBot.chat.noposition;
