@@ -587,7 +587,6 @@
                 var msg = subChat(basicBot.chat.valid, {name: basicBot.userUtilities.getUser(user).username, time: time, position: newPosition});
                 basicBot.userUtilities.moveUser(user.id, newPosition, true);
                 return msg;
-            }
         },
             dclookupwelcome: function (id) {
                 var user = basicBot.userUtilities.lookupUser(id);
@@ -623,7 +622,6 @@
                 return msg;
             }
         },
-
         roomUtilities: {
             rankToNumber: function (rankString) {
                 var rankInt = null;
