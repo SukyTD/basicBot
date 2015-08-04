@@ -2510,9 +2510,9 @@
          		if (basicBot.room.raffle.raffleStatus && basicBot.room.raffle.participants.indexOf(chat.uid) < 0) {
                             basicBot.room.raffle.participants.push(chat.uid);
                             API.sendChat(subChat(basicBot.chat.rafflejoin, {name: chat.un}));
-                        }
                     }
                 }
+              } 
             },
 
             jointimeCommand: {
@@ -2627,7 +2627,7 @@
                     }
                 }
             },
-
+/*
             leaverfCommand: {
                 command: 'leaverf',
                 rank: 'user',
@@ -2645,7 +2645,7 @@
                 }
             },
 
-
+*/
             leaveCommand: {
                 command: 'leave',
                 rank: 'user',
