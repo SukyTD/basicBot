@@ -237,7 +237,7 @@
     var botCreatorIDs = ["4856169", "5596573"];
 
     var basicBot = {
-        version: "3.2.6",
+        version: "3.2.7",
         status: false,
         name: "Karl Bot",
         loggedInID: null,
@@ -2477,7 +2477,7 @@
                     }
                 }
             },
-
+/*
             joinrfCommand: {
                 command: 'joinrf',
                 rank: 'user',
@@ -2493,7 +2493,7 @@
                     }
                 }
             },
-
+*/
             joinCommand: {
                 command: 'join',
                 rank: 'user',
@@ -2505,6 +2505,12 @@
                         if (basicBot.room.roulette.rouletteStatus && basicBot.room.roulette.participants.indexOf(chat.uid) < 0) {
                             basicBot.room.roulette.participants.push(chat.uid);
                             API.sendChat(subChat(basicBot.chat.roulettejoin, {name: chat.un}));
+                        }
+                        else {
+         		if (basicBot.room.raffle.raffleStatus && basicBot.room.raffle.participants.indexOf(chat.uid) < 0) {
+                            basicBot.room.raffle.participants.push(chat.uid);
+                            API.sendChat(subChat(basicBot.chat.rafflejoin, {name: chat.un}));
+                        }
                         }
                     }
                 }
