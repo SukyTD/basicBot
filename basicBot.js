@@ -237,7 +237,7 @@
     var botCreatorIDs = ["4856169", "5596573"];
 
     var basicBot = {
-        version: "3.2.5",
+        version: "3.2.6",
         status: false,
         name: "Karl Bot",
         loggedInID: null,
@@ -406,7 +406,7 @@
                     basicBot.room.raffle.countdown = setTimeout(function () {
                         basicBot.room.raffle.endraffle();
                     }, 60 * 1000);
-                    API.sendChat(basicBot.chat.isopen);
+                    API.sendChat(basicBot.chat.isopenrf);
                 },
                 endraffle: function () {
                     basicBot.room.raffle.raffleStatus = false;
@@ -416,10 +416,7 @@
                     var pos = Math.floor((Math.random() * API.getWaitList().length) + 1);
                     var user = basicBot.userUtilities.lookupUser(winner);
                     var name = user.username;
-                    API.sendChat(subChat(basicBot.chat.winnerpicked, {name: name, position: pos}));
-                    setTimeout(function (winner, pos) {
-                        basicBot.userUtilities.moveUser(winner, pos, false);
-                    }, 1 * 1000, winner, pos);
+                    API.sendChat(subChat(basicBot.chat.winnerpickedrf, {name: name, position: pos}));
                 }
         },
             roulette: {
