@@ -615,7 +615,7 @@
                 if (user.lastDC.time === null) return subChat(basicBot.chat.notdisconnectedwb, {name: name});
                 var dc = user.lastDC.time;
                 var pos = user.lastDC.position;
-                if (pos === null) return basicBot.chat.noposition;
+                if (pos === null) return basicBot.chat.nopositionwb;
                 var timeDc = Date.now() - dc;
                 var validDC = false;
                 if (basicBot.settings.maximumDc * 60 * 1000 > timeDc) {
