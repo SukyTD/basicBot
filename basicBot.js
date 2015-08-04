@@ -559,7 +559,7 @@
                 var user = basicBot.userUtilities.lookupUser(id);
                 if (typeof user === 'boolean') return basicBot.chat.usernotfound;
                 var name = user.username;
-               // if (user.lastDC.time === null) return subChat(basicBot.chat.notdisconnected, {name: name});
+                if (user.lastDC.time === null) return subChat(basicBot.chat.notdisconnected, {name: name});
                 var dc = user.lastDC.time;
                 var pos = user.lastDC.position;
                 if (pos === null) return basicBot.chat.noposition;
@@ -581,7 +581,7 @@
                     }
                 }
                 var newPosition = user.lastDC.position - songsPassed - afksRemoved;
-                if (newPosition <= 0) return subChat(basicBot.chat.notdisconnected, {name: name});
+                //if (newPosition <= 0) return subChat(basicBot.chat.notdisconnected, {name: name});
                 var msg = subChat(basicBot.chat.valid, {name: basicBot.userUtilities.getUser(user).username, time: time, position: newPosition});
                 basicBot.userUtilities.moveUser(user.id, newPosition, true);
                 return msg;
