@@ -237,7 +237,7 @@
     var botCreatorIDs = ["4856169", "5596573"];
 
     var basicBot = {
-        version: "3.2.7",
+        version: "3.2.8",
         status: false,
         name: "Karl Bot",
         loggedInID: null,
@@ -623,7 +623,7 @@
                 }
                 var time = basicBot.roomUtilities.msToStr(timeDc);
                 if (!validDC) return (subChat(basicBot.chat.toolongagodc, {name: basicBot.userUtilities.getUser(user).username}));
-                var songsPassed = user.lastDC.songCount;
+                var songsPassed = basicBot.room.roomstats.songCount - user.lastDC.songCount;
                 var afksRemoved = 0;
                 var afkList = basicBot.room.afkList;
                 for (var i = 0; i < afkList.length; i++) {
