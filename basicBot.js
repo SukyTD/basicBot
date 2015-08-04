@@ -589,6 +589,40 @@
                 return msg;
             }
         },
+            dclookupwelcome: function (id) {
+                var user = basicBot.userUtilities.lookupUser(id);
+                if (typeof user === 'boolean') return basicBot.chat.usernotfound;
+                var name = user.username;
+                if (user.lastDC.time === null) return subChat(basicBot.chat.notdisconnected, {name: name});
+                var dc = user.lastDC.time;
+                var pos = user.lastDC.position;
+                if (pos === null) return basicBot.chat.noposition;
+                var timeDc = Date.now() - dc;
+                var validDC = false;
+                if (basicBot.settings.maximumDc * 60 * 1000 > timeDc) {
+                    validDC = true;
+                }
+                var time = basicBot.roomUtilities.msToStr(timeDc);
+                if (!validDC) return (subChat(basicBot.chat.toolongagodc, {name: basicBot.userUtilities.getUser(user).username}));
+                var songsPassed = user.lastDC.songCount;
+                var afksRemoved = 0;
+                var afkList = basicBot.room.afkList;
+                for (var i = 0; i < afkList.length; i++) {
+                    var timeAfk = afkList[i][1];
+                    var posAfk = afkList[i][2];
+                    if (dc < timeAfk && posAfk < pos) {
+                        afksRemoved++;
+                    }
+                }
+                var newPosition = user.lastDC.position - songsPassed - afksRemoved;
+                if (newPosition <= 0) {
+                	validDC = false;
+                }
+                var msg = subChat(basicBot.chat.validdc, {name: basicBot.userUtilities.getUser(user).username, time: time, position: newPosition});
+                basicBot.userUtilities.moveUser(user.id, newPosition, true);
+                return msg;
+            }
+        },
 
         roomUtilities: {
             rankToNumber: function (rankString) {
@@ -914,8 +948,8 @@
             if (basicBot.settings.welcome && greet) {
                 welcomeback ?
                     setTimeout(function (user) {
-                        API.sendChat(subChat(basicBot.chat.welcomeback, {name: user.username}));
-                        var toChat = basicBot.userUtilities.dclookup(user.id);
+                       // API.sendChat(subChat(basicBot.chat.welcomeback, {name: user.username}));
+                        var toChat = basicBot.userUtilities.dclookupwelcome(user.id);
                         API.sendChat(toChat);
                     }, 1 * 1000, user)
                     :
