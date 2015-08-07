@@ -232,7 +232,7 @@
         return str;
     };
 
-    var botCreator = "KGTHREAT";
+    var botCreator = "KGTHREAT & qSukky";
     var botMaintainer = "Equalize"
     var botCreatorIDs = ["4856169", "5596573"];
 
