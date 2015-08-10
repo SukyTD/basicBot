@@ -827,7 +827,7 @@
             },
             countdownMessage: function () { 
             	    API.sendChat("Test message");
-		}
+		},
             changeDJCycle: function () {
                 var toggle = $(".cycle-toggle");
                 if (toggle.hasClass("disabled")) {
