@@ -20,6 +20,9 @@ var eventCountdownMessages = (function(running) {
                         setTimeout(function(){
                                 API.sendChat("10 seconds until the fest starts!");
                         }, (startTime * 60000) - 10000);
+                        setTimeout(function(){
+                                API.sendChat("9 seconds until the fest starts!");
+                        }, (startTime * 60000) - 11000);
                 };
         });
 })(eventCountdownMessages);
