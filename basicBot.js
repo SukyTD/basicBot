@@ -237,7 +237,7 @@
     var botCreatorIDs = ["4856169", "5596573"];
 
     var basicBot = {
-        version: "3.2.9",
+        version: "3.2.8",
         status: false,
         name: "Karl Bot",
         loggedInID: null,
@@ -825,9 +825,9 @@
                     }, 1500, id);
                 }, 1000, id);
             },
-            countdownMessage: function () { 
+   /*         countdownMessage: function () { 
             	    API.sendChat("Test message");
-		},
+		},*/
             changeDJCycle: function () {
                 var toggle = $(".cycle-toggle");
                 if (toggle.hasClass("disabled")) {
@@ -2584,7 +2584,7 @@
                     }
                 }
             },
-
+/*
             countdownCommand: {
                 command: 'countdown',
                 rank: 'bouncer',
@@ -2598,7 +2598,7 @@
                     }
                 }
             },
-
+*/
             killCommand: {
                 command: 'kill',
                 rank: 'bouncer',
