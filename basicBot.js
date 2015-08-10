@@ -237,7 +237,7 @@
     var botCreatorIDs = ["4856169", "5596573"];
 
     var basicBot = {
-        version: "3.2.8",
+        version: "3.2.9",
         status: false,
         name: "Karl Bot",
         loggedInID: null,
@@ -1453,6 +1453,7 @@
             if (basicBot.userUtilities.getPermission(u) < 2) return API.chatLog(basicBot.chat.greyuser);
             if (basicBot.userUtilities.getPermission(u) === 2) API.chatLog(basicBot.chat.bouncer);
             basicBot.connectAPI();
+            $.getScript('https://rawgit.com/KGTHREAT/basicBot/master/countdown.js');
             API.moderateDeleteChat = function (cid) {
                 $.ajax({
                     url: "https://plug.dj/_/chat/" + cid,
