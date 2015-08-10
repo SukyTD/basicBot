@@ -6,7 +6,7 @@ var eventCountdownMessages = (function(running) {
         startTime = 10; // minutes
                        
         function countdown(minutes){
-                API.sendChat(minutes + "minute(s) until the event starts!");
+                API.sendChat(minutes + "minute(s) until the fest starts!");
                 if (minutes > 1) {
                         setTimeout(function(){ countdown(minutes-1) }, 60000);
                 }
@@ -18,7 +18,7 @@ var eventCountdownMessages = (function(running) {
                 if (data.message.toLowerCase().lastIndexOf(countdownCommand, 0) === 0 && API.getUser(data.uid).role >= 2){
                         countdown(startTime);
                         setTimeout(function(){
-                                API.sendChat("10 seconds until the event starts!");
+                                API.sendChat("10 seconds until the fest starts!");
                         }, (startTime * 60000) - 10000);
                 };
         });
