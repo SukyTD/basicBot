@@ -165,7 +165,7 @@
     "punch": "\/me @%%NAMETO%%, %%NAMEFROM%% %%PUNCH%%",
     "eatlove": "\/me Nobody to love :sadkitty: .",
     "nouserlove": "\/em doesn't see %%NAME%% in room.",
-    "selflove": "\/me @%%NAME%%, you can't love yourself!",
+    "selflove": "\/me @%%NAME%%, don't be selfish and love someone else!",
     "love": "\/me %%NAMEFROM%% %%LOVE%%",
     "eatcookie": "\/me eats a cookie.",
     "nousercookie": "\/em doesn't see %%NAME%% in room and eats a cookie himself.",
