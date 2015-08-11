@@ -30,11 +30,9 @@
         "punches you. You get so scared, you shit a brick and throw it back at him... GET REKT m8"
     ],
     "loves": [
-    "You're not destined to love %%NAMETO%%",
-    "You have a tough road ahead of you with %%NAMETO%%",
-    "You have a lot of love with %%NAMETO%%",
-    "Your love with %%NAMETO%% could work :kreygasm:",
-    "Your love with %%NAMETO%% could work :legit:"
+    "You're not destined to love ",
+    "You have a tough road ahead of you with ",
+    "You have a lot of love with "
     ],
     "balls": [
         "Signs point to yes.",
@@ -166,7 +164,7 @@
     "eatlove": "\/me Nobody to love :sadkitty: .",
     "nouserlove": "\/em doesn't see %%NAME%% in room.",
     "selflove": "\/me @%%NAME%%, don't be selfish and love someone else!",
-    "love": "\/me %%NAMEFROM%% %%LOVE%%",
+    "love": "\/me %%NAMEFROM%% %%LOVE%% %%NAMETO%%",
     "eatcookie": "\/me eats a cookie.",
     "nousercookie": "\/em doesn't see %%NAME%% in room and eats a cookie himself.",
     "selfcookie": "\/me @%%NAME%%, you're a bit greedy, aren't you? Giving cookies to yourself, bah. Share some with other people!",
