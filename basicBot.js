@@ -2654,7 +2654,30 @@
                     }
                 }
             },
-
+            mbCommand: {
+                command: 'mb',
+                rank: 'bouncer',
+                type: 'exact',
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                        $("#meh").click();
+                    }
+                }
+            },
+            wbCommand: {
+                command: 'wb',
+                rank: 'bouncer',
+                type: 'exact',
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                            $("#woot").click();
+                    }
+                }
+            },
             languageCommand: {
                 command: 'language',
                 rank: 'manager',
