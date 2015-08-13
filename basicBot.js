@@ -237,7 +237,7 @@
     var botCreatorIDs = ["4856169", "5596573"];
 
     var basicBot = {
-        version: "3.3.6",
+        version: "3.3.7",
         status: false,
         name: "Karl Bot",
         loggedInID: null,
@@ -407,6 +407,11 @@
                         basicBot.room.raffle.endraffle();
                     }, 60 * 1000);
                     API.sendChat(basicBot.chat.isopenrf);
+                },
+                stopraffle: function () {
+                    basicBot.room.raffle.raffleStatus = false;
+                    clearTimeout(basicBot.room.raffle.countdown);
+                    API.sendChat("The raffle event has been stopped");
                 },
                 endraffle: function () {
                     basicBot.room.raffle.raffleStatus = false;
@@ -3205,6 +3210,7 @@
                         sendToSocket();
                         storeToStorage();
                         basicBot.disconnectAPI();
+                        API.sendChat("Refreshing..");
                         setTimeout(function () {
                             window.location.reload(false);
                         }, 1000);
@@ -3299,6 +3305,20 @@
                 }
             },
 
+	    stopraffleCommand: {
+                command: 'stopraffle',
+                rank: 'mod',
+                type: 'exact',
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                        if (basicBot.room.raffle.raffleStatus < 0) {
+                            basicBot.room.raffle.stopraffle();
+                        }
+                    }
+                }
+            },
             rouletteCommand: {
                 command: 'roulette',
                 rank: 'mod',
