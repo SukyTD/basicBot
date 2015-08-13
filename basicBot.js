@@ -237,7 +237,7 @@
     var botCreatorIDs = ["4856169", "5596573"];
 
     var basicBot = {
-        version: "3.3.7",
+        version: "3.3.8",
         status: false,
         name: "Karl Bot",
         loggedInID: null,
@@ -3313,9 +3313,7 @@
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
                     else {
-                        if (basicBot.room.raffle.raffleStatus < 0) {
                             basicBot.room.raffle.stopraffle();
-                        }
                     }
                 }
             },
