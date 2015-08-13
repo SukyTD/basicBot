@@ -237,7 +237,7 @@
     var botCreatorIDs = ["4856169", "5596573"];
 
     var basicBot = {
-        version: "3.3.5",
+        version: "3.3.6",
         status: false,
         name: "Karl Bot",
         loggedInID: null,
@@ -262,7 +262,7 @@
             cmdDeletion: true,
             maximumAfk: 120,
             afkRemoval: true,
-            maximumDc: 60,
+            maximumDc: 20,
             bouncerPlus: true,
             blacklistEnabled: true,
             lockdownEnabled: false,
