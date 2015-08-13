@@ -411,7 +411,7 @@
                 stopraffle: function () {
                     basicBot.room.raffle.raffleStatus = false;
                     clearTimeout(basicBot.room.raffle.countdown);
-                    API.sendChat("The raffle event has been stopped");
+                    API.sendChat("/me The raffle event has been stopped");
                 },
                 endraffle: function () {
                     basicBot.room.raffle.raffleStatus = false;
@@ -3210,7 +3210,7 @@
                         sendToSocket();
                         storeToStorage();
                         basicBot.disconnectAPI();
-                        API.sendChat("Refreshing..");
+                        API.sendChat("/me Refreshing..");
                         setTimeout(function () {
                             window.location.reload(false);
                         }, 1000);
