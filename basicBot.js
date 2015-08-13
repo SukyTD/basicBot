@@ -2289,7 +2289,7 @@
                         var user = basicBot.userUtilities.lookupUserName(name);
                         if(typeof user === 'boolean') return API.sendChat('/me Invalid user specified.');
                         var lang = basicBot.userUtilities.getUser(user).language;
-                        var ch = '/me @' + name + ' ';
+                        var ch = '/me @' + name + ', ';
                         switch(lang){
                             case 'en': break;
                             case 'da': ch += 'Vær venlig at tale engelsk.'; break;
