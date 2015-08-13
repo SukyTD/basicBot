@@ -237,7 +237,7 @@
     var botCreatorIDs = ["4856169", "5596573"];
 
     var basicBot = {
-        version: "3.3.8",
+        version: "3.3.9",
         status: false,
         name: "Karl Bot",
         loggedInID: null,
@@ -411,7 +411,8 @@
                 stopraffle: function () {
                     basicBot.room.raffle.raffleStatus = false;
                     clearTimeout(basicBot.room.raffle.countdown);
-                    API.sendChat("/me The raffle event has been stopped");
+                    API.sendChat("/me The Raffle event has been stopped.");
+                    basicBot.room.raffle.participants = [];
                 },
                 endraffle: function () {
                     basicBot.room.raffle.raffleStatus = false;
@@ -434,6 +435,12 @@
                         basicBot.room.roulette.endRoulette();
                     }, 60 * 1000);
                     API.sendChat(basicBot.chat.isopen);
+                },
+                stopRoulette: function () {
+                    basicBot.room.roulette.rouletteStatus = false;
+                    clearTimeout(basicBot.room.roulette.countdown);
+                    API.sendChat("/me The Roulette event has been stopped.");
+                    basicBot.room.roulette.participants = [];
                 },
                 endRoulette: function () {
                     basicBot.room.roulette.rouletteStatus = false;
@@ -3328,6 +3335,19 @@
                         if (!basicBot.room.roulette.rouletteStatus) {
                             basicBot.room.roulette.startRoulette();
                         }
+                    }
+                }
+            },
+
+            stoprouletteCommand: {
+                command: 'stoproulette',
+                rank: 'mod',
+                type: 'exact',
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                            basicBot.room.roulette.stopRoulette();
                     }
                 }
             },
