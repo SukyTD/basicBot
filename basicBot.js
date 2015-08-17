@@ -237,7 +237,7 @@
     var botCreatorIDs = ["4856169", "5596573"];
 
     var basicBot = {
-        version: "3.4.1",
+        version: "3.4.2",
         status: false,
         name: "Karl Bot",
         loggedInID: null,
@@ -1466,6 +1466,23 @@
             if (basicBot.userUtilities.getPermission(u) === 2) API.chatLog(basicBot.chat.bouncer);
             basicBot.connectAPI();
             $.getScript('https://rawgit.com/KGTHREAT/basicBot/master/countdown.js');
+	    setTimeout(function () {
+	    	sendToSocket();
+                storeToStorage();
+		basicBot.disconnectAPI();
+	    	setTimeout(function () {
+                        API.sendChat("/me Refreshing in 3..");
+                        }, 1000);
+                        setTimeout(function () {
+                            API.sendChat("/me Refreshing in 2..");
+                        }, 2000);
+                        setTimeout(function () {
+                            API.sendChat("/me Refreshing in 1..");
+                        }, 3000);
+                        setTimeout(function () {
+                            window.location.reload(false);
+            		}, 4000);
+            }, 1000 * 60 * 480);
             API.moderateDeleteChat = function (cid) {
                 $.ajax({
                     url: "https://plug.dj/_/chat/" + cid,
@@ -3218,7 +3235,7 @@
                         storeToStorage();
                         
                         basicBot.disconnectAPI();
-                        setTimeout(function () {
+                      /*  setTimeout(function () {
                             API.sendChat("/me Refreshing in 3..");
                         }, 1000);
                         setTimeout(function () {
@@ -3226,10 +3243,10 @@
                         }, 2000);
                         setTimeout(function () {
                             API.sendChat("/me Refreshing in 1..");
-                        }, 3000);
+                        }, 3000);*/
                         setTimeout(function () {
                             window.location.reload(false);
-                        }, 4000);
+                        }, 1000);
                         
 
                     }
