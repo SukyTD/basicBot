@@ -237,7 +237,7 @@
     var botCreatorIDs = ["4856169", "5596573"];
 
     var basicBot = {
-        version: "3.4.5",
+        version: "3.4.6",
         status: false,
         name: "Karl Bot",
         loggedInID: null,
@@ -3648,13 +3648,13 @@
                         var p2 = API.getWaitListPosition(user2.id) + 1;
                         if (p1 < 0 && p2 < 0) return API.sendChat(subChat(basicBot.chat.swapwlonly, {name: chat.un}));
                         API.sendChat(subChat(basicBot.chat.swapping, {'name1': name1, 'name2': name2}));
-                        if (p1 === -1){
+                        if (p1 === -2){
                             API.moderateRemoveDJ(user2.id);
                             setTimeout(function (user1, p2) {
                                 basicBot.userUtilities.moveUser(user1.id, p2, true);
                             }, 2000, user1, p2);
                         }
-                        else if (p2 === -1){
+                        else if (p2 === -2){
                             API.moderateRemoveDJ(user1.id);
                             setTimeout(function (user2, p1) {
                                 basicBot.userUtilities.moveUser(user2.id, p1, true);
