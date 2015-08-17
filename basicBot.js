@@ -3216,11 +3216,19 @@
                     else {
                         sendToSocket();
                         storeToStorage();
+                        
                         basicBot.disconnectAPI();
-                        API.sendChat("/me Refreshing..");
+                        API.sendChat("/me Refreshing in 3..");
+                        setTimeout(function () {
+                            API.sendChat("/me Refreshing in 2..");
+                        }, 3000);
+                        setTimeout(function () {
+                            API.sendChat("/me Refreshing in 1..");
+                        }, 2000);
                         setTimeout(function () {
                             window.location.reload(false);
-                        }, 1000);
+                        }, 4000);
+                        
 
                     }
                 }
