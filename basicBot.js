@@ -237,7 +237,7 @@
     var botCreatorIDs = ["4856169", "5596573"];
 
     var basicBot = {
-        version: "3.4.0",
+        version: "3.4.1",
         status: false,
         name: "Karl Bot",
         loggedInID: null,
@@ -3218,7 +3218,9 @@
                         storeToStorage();
                         
                         basicBot.disconnectAPI();
-                        API.sendChat("/me Refreshing in 3..");
+                        setTimeout(function () {
+                            API.sendChat("/me Refreshing in 3..");
+                        }, 1000);
                         setTimeout(function () {
                             API.sendChat("/me Refreshing in 2..");
                         }, 2000);
