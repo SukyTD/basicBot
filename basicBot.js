@@ -3221,10 +3221,10 @@
                         API.sendChat("/me Refreshing in 3..");
                         setTimeout(function () {
                             API.sendChat("/me Refreshing in 2..");
-                        }, 3000);
+                        }, 2000);
                         setTimeout(function () {
                             API.sendChat("/me Refreshing in 1..");
-                        }, 2000);
+                        }, 3000);
                         setTimeout(function () {
                             window.location.reload(false);
                         }, 4000);
