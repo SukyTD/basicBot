@@ -237,7 +237,7 @@
     var botCreatorIDs = ["4856169", "5596573"];
 
     var basicBot = {
-        version: "3.4.3",
+        version: "3.4.4",
         status: false,
         name: "Karl Bot",
         loggedInID: null,
@@ -344,9 +344,9 @@
             songstats: true,
             commandLiteral: "!",
             blacklists: {
-                NSFW: "https://rawgit.com/KGTHREAT/basicBot-customization/master/blacklists/NSFWlist.json",
-                OP: "https://rawgit.com/KGTHREAT/basicBot-customization/master/blacklists/OPlist.json",
-                BANNED: "https://rawgit.com/KGTHREAT/basicBot-customization/master/blacklists/BANNEDlist.json"
+                NSFW: "https://rawgit.com/KGTHREAT/mycustombasicbot3/master/blacklists/NSFWlist.json",
+                OP: "https://rawgit.com/KGTHREAT/mycustombasicbot3/master/blacklists/OPlist.json",
+                BANNED: "https://rawgit.com/KGTHREAT/mycustombasicbot3/master/blacklists/BANNEDlist.json"
             }
         },
         room: {
