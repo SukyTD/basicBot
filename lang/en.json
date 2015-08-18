@@ -183,6 +183,7 @@
     "rafflejoin": "@%%NAME%% joined the raffle! (!leave if you regret it)",
     "jointime": "\/me [@%%NAMEFROM%%] @%%USERNAME%% has been in the room for %%TIME%%.",
     "kickrank": "\/me [@%%NAME%%] you can't kick users with an equal or higher rank than you!",
+    "banrank": "\/me [@%%NAME%%] you can't ban users with an equal or higher rank than you!",
     "kick": "\/me [@%%NAME%%], @%%USERNAME%% you are being kicked from the community for %%TIME%% minutes.",
     "kill": "\/me Shutting down.",
     "logout": "\/me [@%%NAME%%] Logging out %%BOTNAME%%",
