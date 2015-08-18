@@ -1890,7 +1890,8 @@
                         if (typeof user === 'boolean') return API.sendChat(subChat(basicBot.chat.invaliduserspecified, {name: chat.un}));
                         var permFrom = basicBot.userUtilities.getPermission(chat.uid);
                         var permUser = basicBot.userUtilities.getPermission(user.id);
-                        if (permUser >= permFrom) return void(0);
+                        if (permUser >= permFrom) 
+                            return API.sendChat(subChat(basicBot.chat.banrank, {name: chat.un}));
                         API.moderateBanUser(user.id, 1, API.BAN.DAY);
                     }
                 }
