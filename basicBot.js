@@ -237,7 +237,7 @@
     var botCreatorIDs = ["4856169", "5596573"];
 
     var basicBot = {
-        version: "3.4.7",
+        version: "3.4.8",
         status: false,
         name: "Karl Bot",
         loggedInID: null,
@@ -630,7 +630,7 @@
                 if (pos === null) return (subChat(basicBot.chat.nopositionwb, {name: basicBot.userUtilities.getUser(user).username}));
                 var timeDc = Date.now() - dc;
                 var validDC = false;
-                if (basicBot.settings.maximumDc * 60 * 1000 > timeDc) {
+                if (5 * 60 * 1000 > timeDc) {
                     validDC = true;
                 }
                 var time = basicBot.roomUtilities.msToStr(timeDc);
