@@ -232,7 +232,7 @@
         return str;
     };
 
-    var botCreator = "qSukky & KGTHREAT";
+    var botCreator = "qSukky";
     var botMaintainer = "Equalize"
     var botCreatorIDs = ["4856169", "5596573"];
 
@@ -3512,7 +3512,7 @@
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
                     else {
-                        API.sendChat('/me This bot was created by ' + botCreator + ' .');
+                        API.sendChat('/me This bot is codded by ' + botCreator + ' and is maintained by '+ botMaintainer +' .');
                     }
                 }
             },
