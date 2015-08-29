@@ -3266,7 +3266,7 @@
                     else {
                         sendToSocket();
                         storeToStorage();
-                        
+                        API.sendChat("/me Refreshing..");                        
                         basicBot.disconnectAPI();
                       /*  setTimeout(function () {
                             API.sendChat("/me Refreshing in 3..");
