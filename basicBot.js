@@ -211,7 +211,7 @@
       return this.substring(0, str.length) === str;
     };
 
-    var linkFixer = function (msg) {
+    function linkFixer(msg) {
         var parts = msg.splitBetween('<a href="', '<\/a>');
         for (var i = 1; i < parts.length; i = i + 2) {
             var link = parts[i].split('"')[0];
@@ -224,7 +224,7 @@
         return m;
     };
 
-    var decodeEntities = function (s) {
+    function decodeEntities(s) {
         var str, temp = document.createElement('p');
         temp.innerHTML = s;
         str = temp.textContent || temp.innerText;
@@ -232,12 +232,12 @@
         return str;
     };
 
-    var botCreator = "qSukky";
+    var botCreator = "xSuky";
     var botMaintainer = "Equalize"
     var botCreatorIDs = ["4856169", "5596573"];
 
     var basicBot = {
-        version: "3.4.8",
+        version: "3.4.9",
         status: false,
         name: "Karl Bot",
         loggedInID: null,
@@ -351,6 +351,7 @@
         },
         room: {
             name: null,
+            chatMessages: [], 
             users: [],
             afkList: [],
             mutedUsers: [],
@@ -934,6 +935,9 @@
             chat.message = linkFixer(chat.message);
             chat.message = decodeEntities(chat.message);
             chat.message = chat.message.trim();
+            
+            basicBot.room.chatMessages.push([chat.cid, chat.message, chat.sub, chat.timestamp, chat.type, chat.uid, chat.un]); 
+            
             for (var i = 0; i < basicBot.room.users.length; i++) {
                 if (basicBot.room.users[i].id === chat.uid) {
                     basicBot.userUtilities.setLastActivity(basicBot.room.users[i]);
@@ -1466,7 +1470,7 @@
             if (basicBot.userUtilities.getPermission(u) === 2) API.chatLog(basicBot.chat.bouncer);
             basicBot.connectAPI();
             $.getScript('https://rawgit.com/KGTHREAT/basicBot/master/countdown.js');
-	    setTimeout(function () {
+/*	    setTimeout(function () {
 	    	sendToSocket();
                 storeToStorage();
 		basicBot.disconnectAPI();
@@ -1482,7 +1486,7 @@
                         setTimeout(function () {
                             window.location.reload(false);
             		}, 4000);
-            }, 1000 * 60 * 480);
+            }, 1000 * 60 * 480);*/
             API.moderateDeleteChat = function (cid) {
                 $.ajax({
                     url: "https://plug.dj/_/chat/" + cid,
@@ -2282,6 +2286,31 @@
                     }
                 }
             },*/
+
+	deletechatCommand: {  
+               command: 'deletechat',  
+                rank: 'mod',  
+                type: 'startsWith',  
+                 functionality: function (chat, cmd) {  
+                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);  
+                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);  
+                     else {  
+                         var msg = chat.message;  
+                         if (msg.length === cmd.length) return API.sendChat(subChat(basicBot.chat.nouserspecified, {name: chat.un}));  
+                         var name = msg.substring(cmd.length + 2);  
+                         var user = basicBot.userUtilities.lookupUserName(name);  
+                         if (typeof user === 'boolean') return API.sendChat(subChat(basicBot.chat.invaliduserspecified, {name: chat.un}));  
+                         for (var i = 1; i < basicBot.room.chatMessages.length; i++) {  
+                           if (basicBot.room.chatMessages[i].indexOf(user.id) > -1){  
+                             API.moderateDeleteChat(basicBot.room.chatMessages[i][0]);  
+                             basicBot.room.chatMessages[i].splice(0);  
+                           }  
+                         }  
+                         API.sendChat(subChat(basicBot.chat.deletechat, {name: chat.un, username: name}));  
+                     }  
+                 }  
+             },  
+
 
             emojiCommand: {
                 command: 'emoji',
