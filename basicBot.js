@@ -3624,9 +3624,9 @@
 
                         /*
                         // least efficient way to go about this, but it works :)
-                        if (msg.length > 256){
-                            firstpart = msg.substr(0, 256);
-                            secondpart = msg.substr(256);
+                        if (msg.length > 250){
+                            firstpart = msg.substr(0, 250);
+                            secondpart = msg.substr(250);
                             API.sendChat(firstpart);
                             setTimeout(function () {
                                 API.sendChat(secondpart);
@@ -3638,8 +3638,8 @@
                         */
 
                         // This is a more efficient solution
-                        if (msg.length > 238){
-                            var split = msg.match(/.{1,238}/g);
+                        if (msg.length > 250){
+                            var split = msg.match(/.{1,250}/g);
                             for (var i = 0; i < split.length; i++) {
                                 var func = function(index) {
                                     setTimeout(function() {
