@@ -237,7 +237,7 @@
     var botCreatorIDs = ["4856169", "5596573"];
 
     var basicBot = {
-        version: "3.5.2",
+        version: "3.5.3",
         status: false,
         name: "Karl Bot",
         loggedInID: null,
@@ -278,8 +278,8 @@
             autodisable: true,
             commandCooldown: 30,
             usercommandsEnabled: true,
-	    thorCommand: true,
-            thorInterval: 10,
+	    thorCommand: false,
+            thorCooldown: 10,
             images: [
             ["savage","http://i.imgur.com/f03PWbE.jpg"],
             ["pepe","http://i.imgur.com/fh8c8g1.png"],
@@ -3746,7 +3746,7 @@
                               worthy = worthyAlg == 10 ? true : false;
 
                           for (var i = 0; i < djlist.length; i++) {
-                              if (djlist[i] == id)
+                              if (djlist[i].id == id)
                                   inDjList = true;
                           }
 
@@ -3760,7 +3760,7 @@
                               }
 
                               if (usedThor) {
-                                  timeInMinutes = (basicBot.settings.thorInterval + 1) - (Math.floor((oldTime - Date.now()) * Math.pow(10, -5)) * -1);
+                                  timeInMinutes = (basicBot.settings.thorCooldown + 1) - (Math.floor((oldTime - Date.now()) * Math.pow(10, -5)) * -1);
                                   thorCd = timeInMinutes > 0 ? true : false;
                                   if (thorCd == false)
                                       basicBot.room.usersUsedThor.splice(indexArrUsedThor, 1);
@@ -3772,30 +3772,23 @@
                               }
                           }
 
-                          if (isDj && worthy == true) {
-                              return API.sendChat(subChat(basicBot.chat.thorWorthy, {name: from}));
-                          } else if (isDj && worthy == false) {
-                              API.moderateForceSkip();
-                              return API.sendChat(subChat(basicBot.chat.thorNotWorthy, {name: from}));
-                          } else if (!inDjList) {
+
+                          if (!inDjList) {
                               return API.sendChat(subChat(basicBot.chat.thorNotClose, {name: from}));
                           } else if (thorCd) {
                               return API.sendChat(subChat(basicBot.chat.thorcd, {name: from, time: timeInMinutes}));
                           }
 
                           if (worthy) {
-                              if (API.getWaitListPosition(id) != 1)
-                                  basicBot.userUtilities.moveUser(id, 1, false);
-                              return API.sendChat(subChat(basicBot.chat.thorWorthy, {name: from}));
-                          } else if (!inDjList) {
-                              return API.sendChat(subChat(basicBot.chat.thorNotClose, {name: from}));
-                          } else if (API.getWaitListPosition(id) != djlist.length) {
-                              basicBot.userUtilities.moveUser(id, djlist.length, false);
-                              return API.sendChat(subChat(basicBot.chat.thorNotWorthy, {name: from}));
+                            if (API.getWaitListPosition(id) != 0)
+                            basicBot.userUtilities.moveUser(id, 1, false);
+                            API.sendChat(subChat(basicBot.chat.thorWorthy, {name: from}));
                           } else {
-                              return API.sendChat(subChat(basicBot.chat.thorNotWorthy, {name: from}));
+                            if (API.getWaitListPosition(id) != djlist.length - 1)
+                            basicBot.userUtilities.moveUser(id, djlist.length, false);
+                            API.sendChat(subChat(basicBot.chat.thorNotWorthy, {name: from}));
                           }
-                      }
+                       }
                     }
                 }
             },
