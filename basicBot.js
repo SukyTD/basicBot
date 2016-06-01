@@ -2036,7 +2036,7 @@
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
                     else {
-                              API.sendChat("/me Karl Bot commands: https://goo.gl/oX3C3r");
+                              API.sendChat("/me Rave Bot commands: http://bit.ly/25yDDCy");
                     }
                 }
             },
