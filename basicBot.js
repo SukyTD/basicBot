@@ -1,6 +1,7 @@
 /**
  *Copyright 2014 Yemasthui
  *Copyright 2015-2016 The Nation
+ *Copyright 2016-2017 Dacic Ravenue
  *Modifications (including forks) of the code to fit personal needs are allowed only for personal use and should refer back to the original source.
  *This software is not for profit, any extension, or unauthorised person providing this software is not authorised to be in a position of any monetary gain from this use of this software. Any and all money gained under the use of the software (which includes donations) must be passed on to the original author.
  */
@@ -100,7 +101,7 @@
     var loadChat = function (cb) {
         if (!cb) cb = function () {
         };
-        $.get("https://rawgit.com/KGTHREAT/basicBot/master/lang/langIndex.json", function (json) {
+        $.get("https://rawgit.com/SukyTD/basicBot/master/lang/langIndex.json", function (json) {
             var link = basicBot.chatLink;
             if (json !== null && typeof json !== "undefined") {
                 langIndex = json;
@@ -232,26 +233,26 @@
         return str;
     };
 
-    var botCreator = "xSuky";
-    var botMaintainer = "Equalize"
-    var botCreatorIDs = ["4856169", "5596573"];
+    var botCreator = "Suky";
+    var botMaintainer = "Noisyment"
+    var botCreatorIDs = ["4856169", "5565914"];
 
     var basicBot = {
         version: "3.5.4",
         status: false,
-        name: "Karl Bot",
+        name: "Rave Bot",
         loggedInID: null,
-        scriptLink: "https://rawgit.com/KGTHREAT/mycustombasicbot3/master/extension.js",
+        scriptLink: null,
         cmdLink: "https://goo.gl/oX3C3r",
-        chatLink: "https://rawgit.com/KGTHREAT/basicBot/master/lang/en.json",
+        chatLink: "https://rawgit.com/SukyTD/basicBot/master/lang/en.json",
         chat: null,
         loadChat: loadChat,
         retrieveSettings: retrieveSettings,
         retrieveFromStorage: retrieveFromStorage,
         settings: {
-            botName: "Karl Bot",
+            botName: "Rave Bot",
             language: "english",
-            chatLink: "https://rawgit.com/KGTHREAT/basicBot/master/lang/en.json",
+            chatLink: "https://rawgit.com/SukyTD/basicBot/master/lang/en.json",
             roomLock: false, // Requires an extension to re-load the script
             startupCap: 1, // 1-200
             startupVolume: 0, // 0-100
@@ -335,20 +336,20 @@
             filterChat: true,
             etaRestriction: false,
             welcome: true,
-            opLink: null,
+            opLink: "goo.gl/eFIs6u",
             rulesLink: null,
             themeLink: null,
-            fbLink: null,
-            youtubeLink: null,
-            website: null,
+            fbLink: "https://www.facebook.com/trapdacicc & https://www.facebook.com/ravenueofficial/",
+            youtubeLink: "https://www.youtube.com/channel/UCv0Jd36ByQYSnqVleBINATA & https://www.youtube.com/channel/UCZIElhs4ViHnLyk5R6ii2wQ",
+            website: "www.alltrapdacic.com",
             intervalMessages: [],
             messageInterval: 5,
             songstats: true,
             commandLiteral: "!",
             blacklists: {
-                NSFW: "https://rawgit.com/KGTHREAT/mycustombasicbot3/master/blacklists/NSFWlist.json",
-                OP: "https://rawgit.com/KGTHREAT/mycustombasicbot3/master/blacklists/OPlist.json",
-                BANNED: "https://rawgit.com/KGTHREAT/mycustombasicbot3/master/blacklists/BANNEDlist.json"
+                NSFW: "https://rawgit.com/SukyTD/mycustombasicbot3/master/blacklists/NSFWlist.json",
+                OP: "https://rawgit.com/SukyTD/mycustombasicbot3/master/blacklists/OPlist.json",
+                BANNED: "https://rawgit.com/SukyTD/mycustombasicbot3/master/blacklists/BANNEDlist.json"
             }
         },
         room: {
@@ -1472,7 +1473,7 @@
             if (basicBot.userUtilities.getPermission(u) < 2) return API.chatLog(basicBot.chat.greyuser);
             if (basicBot.userUtilities.getPermission(u) === 2) API.chatLog(basicBot.chat.bouncer);
             basicBot.connectAPI();
-            $.getScript('https://rawgit.com/KGTHREAT/basicBot/master/countdown.js');
+            $.getScript('https://rawgit.com/SukyTD/basicBot/master/countdown.js');
             setTimeout(function () {
 	    	sendToSocket();
                 storeToStorage();
@@ -2400,7 +2401,7 @@
                 if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
-                    API.sendChat("/me Join Our Facebook Group: http://on.fb.me/1dRgupy");
+                    API.sendChat("/me Join Our Facebook Group: http://bit.ly/1UhwuOO");
                 }
             }
         },
@@ -2755,7 +2756,7 @@
                         if (msg.length <= cmd.length + 1) return API.sendChat(subChat(basicBot.chat.currentlang, {language: basicBot.settings.language}));
                         var argument = msg.substring(cmd.length + 1);
 
-                        $.get("https://rawgit.com/KGTHREAT/basicBot/master/lang/langIndex.json", function (json) {
+                        $.get("https://rawgit.com/SukyTD/basicBot/master/lang/langIndex.json", function (json) {
                             var langIndex = json;
                             var link = langIndex[argument.toLowerCase()];
                             if (typeof link === "undefined") {
