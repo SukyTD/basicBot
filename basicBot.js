@@ -101,7 +101,7 @@
     var loadChat = function (cb) {
         if (!cb) cb = function () {
         };
-        $.get("https://rawgit.com/SukTD/basicBot/master/lang/langIndex.json", function (json) {
+        $.get("https://rawgit.com/SukyTD/basicBot/master/lang/langIndex.json", function (json) {
             var link = basicBot.chatLink;
             if (json !== null && typeof json !== "undefined") {
                 langIndex = json;
@@ -244,7 +244,7 @@
         loggedInID: null,
         scriptLink: null,
         cmdLink: "https://goo.gl/oX3C3r",
-        chatLink: "https://rawgit.com/SukTD/basicBot/master/lang/en.json",
+        chatLink: "https://rawgit.com/SukyTD/basicBot/master/lang/en.json",
         chat: null,
         loadChat: loadChat,
         retrieveSettings: retrieveSettings,
@@ -252,7 +252,7 @@
         settings: {
             botName: "Rave Bot",
             language: "english",
-            chatLink: "https://rawgit.com/SukTD/basicBot/master/lang/en.json",
+            chatLink: "https://rawgit.com/SukyTD/basicBot/master/lang/en.json",
             roomLock: false, // Requires an extension to re-load the script
             startupCap: 1, // 1-200
             startupVolume: 0, // 0-100
@@ -347,9 +347,9 @@
             songstats: true,
             commandLiteral: "!",
             blacklists: {
-                NSFW: "https://rawgit.com/SukTD/mycustombasicbot3/master/blacklists/NSFWlist.json",
-                OP: "https://rawgit.com/SukTD/mycustombasicbot3/master/blacklists/OPlist.json",
-                BANNED: "https://rawgit.com/SukTD/mycustombasicbot3/master/blacklists/BANNEDlist.json"
+                NSFW: "https://rawgit.com/SukyTD/mycustombasicbot3/master/blacklists/NSFWlist.json",
+                OP: "https://rawgit.com/SukyTD/mycustombasicbot3/master/blacklists/OPlist.json",
+                BANNED: "https://rawgit.com/SukyTD/mycustombasicbot3/master/blacklists/BANNEDlist.json"
             }
         },
         room: {
@@ -1473,7 +1473,7 @@
             if (basicBot.userUtilities.getPermission(u) < 2) return API.chatLog(basicBot.chat.greyuser);
             if (basicBot.userUtilities.getPermission(u) === 2) API.chatLog(basicBot.chat.bouncer);
             basicBot.connectAPI();
-            $.getScript('https://rawgit.com/SukTD/basicBot/master/countdown.js');
+            $.getScript('https://rawgit.com/SukyTD/basicBot/master/countdown.js');
             setTimeout(function () {
 	    	sendToSocket();
                 storeToStorage();
@@ -2756,7 +2756,7 @@
                         if (msg.length <= cmd.length + 1) return API.sendChat(subChat(basicBot.chat.currentlang, {language: basicBot.settings.language}));
                         var argument = msg.substring(cmd.length + 1);
 
-                        $.get("https://rawgit.com/SukTD/basicBot/master/lang/langIndex.json", function (json) {
+                        $.get("https://rawgit.com/SukyTD/basicBot/master/lang/langIndex.json", function (json) {
                             var langIndex = json;
                             var link = langIndex[argument.toLowerCase()];
                             if (typeof link === "undefined") {
