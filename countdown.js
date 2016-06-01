@@ -48,7 +48,7 @@ var eventCountdownMessages = (function(running) {
                                 API.sendChat("1 seconds until the fest starts!");
                         }, (startTime * 60000) - 1000);
                         setTimeout(function(){
-                                API.sendChat("The fest started! Welcome to The Nation!");
+                                API.sendChat("The fest started! Welcome to Trap Dacic!");
                         }, (startTime * 60000) - 0.1);
                         
                 };
