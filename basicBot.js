@@ -1474,7 +1474,7 @@
             if (basicBot.userUtilities.getPermission(u) === 2) API.chatLog(basicBot.chat.bouncer);
             basicBot.connectAPI();
             $.getScript('https://rawgit.com/SukyTD/basicBot/master/countdown.js');
-            setTimeout(function () {
+         /*   setTimeout(function () {
 	    	sendToSocket();
                 storeToStorage();
 		basicBot.disconnectAPI();
@@ -1490,7 +1490,7 @@
                         setTimeout(function () {
                             window.location.reload(false);
             		}, 4000);
-            }, 1000 * 60 * 480);
+            }, 1000 * 60 * 480);*/
             API.moderateDeleteChat = function (cid) {
                 $.ajax({
                     url: "https://plug.dj/_/chat/" + cid,
