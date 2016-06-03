@@ -240,7 +240,7 @@
     var basicBot = {
         version: "3.5.4",
         status: false,
-        name: "Rave Bot",
+        name: "Dacic Bot",
         loggedInID: null,
         scriptLink: null,
         cmdLink: "https://goo.gl/oX3C3r",
@@ -250,7 +250,7 @@
         retrieveSettings: retrieveSettings,
         retrieveFromStorage: retrieveFromStorage,
         settings: {
-            botName: "Rave Bot",
+            botName: "Dacic Bot",
             language: "english",
             chatLink: "https://rawgit.com/SukyTD/basicBot/master/lang/en.json",
             roomLock: false, // Requires an extension to re-load the script
@@ -2036,7 +2036,7 @@
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
                     else {
-                              API.sendChat("/me Rave Bot commands: http://bit.ly/25yDDCy");
+                              API.sendChat("/me Dacic Bot commands: http://bit.ly/25yDDCy");
                     }
                 }
             },
