@@ -1229,14 +1229,14 @@
             if (msg === '') {
                 return true;
             }
-            if (!containsLetters && (msg.length === 1 || msg.length > 3)) return true;
-            msg = msg.replace(/[ ,;.:\/=~+%^*\-\\"'&@#]/g, '');
+         //   if (!containsLetters && (msg.length === 1 || msg.length > 3)) return true;
+           // msg = msg.replace(/[ ,;.:\/=~+%^*\-\\"'&@#]/g, '');
             var capitals = 0;
-            var ch;
-            for (var i = 0; i < msg.length; i++) {
-                ch = msg.charAt(i);
-                if (ch >= 'A' && ch <= 'Z') capitals++;
-            }
+           // var ch;
+           // for (var i = 0; i < msg.length; i++) {
+            //    ch = msg.charAt(i);
+            //    if (ch >= 'A' && ch <= 'Z') capitals++;
+            //}
             if (capitals >= 40) {
                 API.sendChat(subChat(basicBot.chat.caps, {name: chat.un}));
                 return true;
@@ -1354,7 +1354,7 @@
                     if (!basicBot.room.allcommand) return void (0);
                 }
                 if (chat.message === basicBot.settings.commandLiteral + 'eta' && basicBot.settings.etaRestriction) {
-                    if (userPerm === 0) {
+                    if (userPerm < 2) {
                         var u = basicBot.userUtilities.lookupUser(chat.uid);
                         if (u.lastEta !== null && (Date.now() - u.lastEta) < 1 * 60 * 60 * 1000) {
                             API.moderateDeleteChat(chat.cid);
