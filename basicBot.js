@@ -1354,7 +1354,7 @@
                     if (!basicBot.room.allcommand) return void (0);
                 }
                 if (chat.message === basicBot.settings.commandLiteral + 'eta' && basicBot.settings.etaRestriction) {
-                    if (userPerm < 2) {
+                    if (userPerm === 0) {
                         var u = basicBot.userUtilities.lookupUser(chat.uid);
                         if (u.lastEta !== null && (Date.now() - u.lastEta) < 1 * 60 * 60 * 1000) {
                             API.moderateDeleteChat(chat.cid);
