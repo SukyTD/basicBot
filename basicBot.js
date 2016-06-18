@@ -275,7 +275,7 @@
             historySkip: true,
             timeGuard: true,
             maximumSongLength: 7,
-            autodisable: true,
+            autodisable: false,
             commandCooldown: 30,
             usercommandsEnabled: true,
 	    thorCommand: true,
