@@ -367,8 +367,8 @@
             autodisableInterval: null,
             autodisableFunc: function () {
                 if (basicBot.status && basicBot.settings.autodisable) {
-                    API.sendChat('!afkdisable');
-                    API.sendChat('!joindisable');
+//                    API.sendChat('!afkdisable');
+ //                   API.sendChat('!joindisable');
                 }
             },
             queueing: 0,
@@ -875,7 +875,7 @@
                         var messageNumber = basicBot.room.roomstats.songCount % basicBot.settings.intervalMessages.length;
                         msg = basicBot.settings.intervalMessages[messageNumber];
                     }
-                    API.sendChat('/me ' + msg);
+          //          API.sendChat('/me ' + msg);
                 }
             },
             updateBlacklists: function () {
