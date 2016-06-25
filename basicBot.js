@@ -2573,7 +2573,7 @@
                     else {
                         if (basicBot.settings.festmode) {
 			    basicBot.settings.historySkip = !basicBot.settings.historySkip;
-			    basicBot.settings.maximumSongLength = 7; 
+                            basicBot.settings.timeGuard = !basicBot.settings.timeGuard;
 			    basicBot.settings.voteSkip = !basicBot.settings.voteSkip;
                             basicBot.settings.festmode = !basicBot.settings.festmode;
                             API.sendChat('Fest mode OFF');
@@ -2581,7 +2581,7 @@
                         else {
 			    basicBot.settings.historySkip = !basicBot.settings.historySkip;
                             basicBot.settings.voteSkip = !basicBot.settings.voteSkip;
-                    	    basicBot.settings.maximumSongLength = 999999; 
+                            basicBot.settings.timeGuard = !basicBot.settings.timeGuard;
                             basicBot.settings.festmode = !basicBot.settings.festmode;
                             API.sendChat('Fest mode ON');
                         }
