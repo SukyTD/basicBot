@@ -273,6 +273,7 @@
             voteSkip: true,
             voteSkipLimit: 9,
             historySkip: true,
+            festmode: false,
             timeGuard: true,
             maximumSongLength: 7,
             autodisable: false,
@@ -2562,7 +2563,31 @@
                     }
                 }
             },
-
+            festmodeCommand: {
+                command: 'festmode',
+                rank: 'manager',
+                type: 'exact',
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                        if (basicBot.settings.festmode) {
+			    basicBot.settings.historySkip = !basicBot.settings.historySkip;
+			    basicBot.settings.maximumSongLength = 7; 
+			    basicBot.settings.voteSkip = !basicBot.settings.voteSkip;
+                            basicBot.settings.festmode = !basicBot.settings.festmode;
+                            API.sendChat('Fest mode OFF');
+                        }
+                        else {
+			    basicBot.settings.historySkip = !basicBot.settings.historySkip;
+                            basicBot.settings.voteSkip = !basicBot.settings.voteSkip;
+                    	    basicBot.settings.maximumSongLength = 999999; 
+                            basicBot.settings.festmode = !basicBot.settings.festmode;
+                            API.sendChat('Fest mode ON');
+                        }
+                    }
+                }
+            },
             historyskipCommand: {
                 command: 'historyskip',
                 rank: 'bouncer',
@@ -3568,6 +3593,12 @@
                         if (basicBot.settings.historySkip) msg += 'ON';
                         else msg += 'OFF';
                         msg += '. ';
+                        
+			msg += basicBot.chat.festmode + ': ';
+                        if (basicBot.settings.festmode) msg += 'ON';
+                        else msg += 'OFF';
+                        msg += '. ';
+
 
                         msg += basicBot.chat.voteskip + ': ';
                         if (basicBot.settings.voteSkip) msg += 'ON';
