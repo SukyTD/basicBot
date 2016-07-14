@@ -232,7 +232,7 @@
         return str;
     };
 
-    var botCreator = "xSuky";
+    var botCreator = "Suky";
     var botMaintainer = "Equalize"
     var botCreatorIDs = ["4856169", "5596573"];
 
